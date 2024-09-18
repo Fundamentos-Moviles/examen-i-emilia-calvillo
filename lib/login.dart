@@ -1,3 +1,4 @@
+import 'package:examen1/home.dart';
 import 'package:flutter/material.dart';
 import 'package:examen1/utils/constants.dart' as con;
 
@@ -289,8 +290,7 @@ class _LoginState extends State<Login> {
       } else {
         errorMessage = null;
         print('Datos correctos');
-        // Acción al ingresar los datos correctamente
-        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
       }
     });
   }
