@@ -1,3 +1,4 @@
+import 'package:examen1/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:examen1/utils/constants.dart' as con;
 
@@ -138,81 +139,92 @@ class CreateFirstCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15.0),
-      height: 150.0,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20.0), // Corner radius
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    numero,
-                    style: TextStyle(
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
-                      color: con.background,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MoreInfo(),
+          ),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(15.0),
+        height: 150.0,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.0), // Corner radius
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      numero,
+                      style: TextStyle(
+                        fontSize: 28.0,
+                        fontWeight: FontWeight.bold,
+                        color: con.background,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(
-                      Icons.task,
-                      size: 30.0,
-                      color: con.background4,
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(
+                        Icons.task,
+                        size: 30.0,
+                        color: con.background4,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    titulo,
-                    style: TextStyle(fontSize: 22.0),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    descripcion,
-                    style: TextStyle(fontSize: 18.0, color: Colors.grey),
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: List.generate(estrellas, (index) {
-                        return Icon(Icons.star, size: 20.0, color: Colors.yellow);
-                      }),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      titulo,
+                      style: TextStyle(fontSize: 22.0),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      descripcion,
+                      style: TextStyle(fontSize: 18.0, color: Colors.grey),
+                    ),
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: List.generate(estrellas, (index) {
+                          return Icon(Icons.star, size: 20.0, color: Colors.yellow);
+                        }),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 // SecondCard class
 class CreateSecondCard extends StatelessWidget {
@@ -318,7 +330,7 @@ class CreateSecondCard extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    //
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MoreInfo()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: con.background2,
